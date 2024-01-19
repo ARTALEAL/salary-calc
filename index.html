@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calc</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Калькулятор расчёта зарплаты</h1>
+    </header>
+    <main class="main" id="app">
+        <div class="form-container">
+            <form class="form" @submit.prevent="submit">
+                <label for="minutes">Введите минуты</label>
+                <input type="number" min="1" id="minutes" v-model="minutes" required>
+                <label for="rate">Ставка в час</label>
+                <input type="number" min="1" id="rate" v-model="rate" required>
+                <button type="submit">Рассчитать</button>
+            </form>
+            <h2 v-if="!salary">Введите данные по сотруднику</h2>
+            <h2 v-else>К оплате: {{ salary }} руб.</h2>
+        </div>
+    </main>
+    <script src="./app.js"></script>
+    <script>const mountedApp = app.mount('#app')</script>
+</body>
+
+</html>
